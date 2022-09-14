@@ -1,19 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "types": ["vite/client"]
+    "baseUrl": ".", // 解析非相对模块名的基准目录
+    "strict": true, // 启用所有严格类型检查
+    "sourceMap": true, // 生成相应的 .map 文件
+    "jsx": "preserve", // 在 .tsx 文件里支持JSX
+    "target": "ESNext", // 指定编译目标版本
+    "module": "ESNext", // 指定使用模块系统
+    "moduleResolution": "Node", // 指定模块解析策略
+    "resolveJsonModule": true, // 允许导入json文件，并验证文件结构
+    "skipLibCheck": true, // 忽略声明文件的类型检查
+    "isolatedModules": true, // 仅对每个文件进行单独的类型检查
+    "esModuleInterop": true, // 允许使用import导入commonjs模块
+    "preserveValueImports": true, // 保留import语句中的值
+    "importsNotUsedAsValues": "error", // 报告未使用的import
+    "lib": ["ESNext", "DOM"], // 指定要包含在编译中的库文件
+    "types": ["vite/client"], // 指定要包含在编译中的类型声明文件
+    "paths": { "@/*": ["src/*"] } // 指定模块名到基于baseUrl的路径映射的列表
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["dist", "node_modules"], // 指定要从编译中排除的文件或目录
+  "include": ["*.d.ts", "src/**/*"] // 指定要包含在编译中的文件或目录
 }
